@@ -6,7 +6,7 @@ class UserBehavior(TaskSet):
     def on_start(self):
         response = self.client.post("/account-api/login/", json={
             "username": "majid",
-            "phone_number": "09177293982",
+            "phone_number": "09177293981",
             "password": "Ms2420879422"
         })
         self.token = response.json().get("token")
@@ -24,7 +24,7 @@ class UserBehavior(TaskSet):
     @task
     def charge_customer(self):
         self.client.post("/finance-api/charge/", json={
-            "phone_number": "09177293981",
+            "phone_number": "09175373686",
             "amount": "5.000"
         }, headers={"Authorization": f"Token {self.token}"})
 

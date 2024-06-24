@@ -140,3 +140,4 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'account.User'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'

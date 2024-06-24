@@ -8,7 +8,7 @@ class User(AbstractUser):
         ('vendor', 'Vendor'),
         ('customer', 'Customer'),
     )
-    role = models.CharField(max_length=10, choices=Roles, default='Customer')
+    role = models.CharField(max_length=10, choices=Roles, default='customer')
     phone_number = models.CharField(max_length=11, unique=True, db_index=True)
     charge_amount = models.DecimalField(max_digits=10, decimal_places=3, default=0.000)
 

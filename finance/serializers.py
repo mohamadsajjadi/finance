@@ -1,26 +1,3 @@
-# from rest_framework import serializers
-# from .models import Store, CreditRequest, Transaction
-#
-#
-# class StoreSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Store
-#         fields = ['id', 'owner', 'name', 'approved', 'created_at', 'credit_balance']
-#         read_only_fields = ['owner', 'approved', 'created_at', 'credit_balance']
-#
-#
-# class CreditRequestSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = CreditRequest
-#         fields = ['id', 'store', 'amount', 'approved', 'created_at', 'approved_at']
-#         read_only_fields = ['store', 'approved', 'created_at', 'approved_at']
-#
-#
-# class TransactionSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Transaction
-#         fields = ['id', 'store', 'phone_number', 'amount', 'created_at']
-#         read_only_fields = ['store', 'created_at']
 import decimal
 
 from rest_framework import serializers
@@ -36,20 +13,12 @@ class StoreSerializer(serializers.ModelSerializer):
         fields = ['id', 'owner', 'name', 'approved', 'created_at', 'credit_balance']
         read_only_fields = ['owner', 'approved', 'created_at', 'credit_balance']
 
-    def validate(self, attrs):
-        # اضافه کردن ولیدیشن‌های لازم برای Store
-        return attrs
-
 
 class CreditRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = CreditRequest
         fields = ['id', 'store', 'amount', 'approved', 'created_at', 'approved_at']
         read_only_fields = ['store', 'approved', 'created_at', 'approved_at']
-
-    def validate(self, attrs):
-        # اضافه کردن ولیدیشن‌های لازم برای CreditRequest
-        return attrs
 
     def approve(self):
         self.instance.approved = True
